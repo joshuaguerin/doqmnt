@@ -47,6 +47,39 @@
   (setq current (+ current total))
   (goto-char current))
 
+(defun class-doq ()
+  "Provide documentation for the class declared on the current line."
+  (interactive)
+  (setq brief (read-string "@brief: "))
+  (setq desc (read-string "@description: "))
+  (setq current (point))
+  (setq p1 (line-beginning-position))
+  (end-of-line)
+  (setq p2 (point))
+  (setq line (buffer-substring p1 p2))
+  (setq def (split-string line))
+  (setq classname (cadr def))
+  (setq enddef (re-search-forward "};$"))
+
+  (goto-char enddef)
+  (insert "\n\n/* @class ")
+  (insert classname)
+  (insert " ")
+  (setq vals (reverse (split-string (buffer-file-name) "/")))
+  (insert (car vals)) ; need to fix
+  (insert " \"")
+  (insert (cadr vals))
+  (insert "/")
+  (insert (car vals))
+  (insert "\"\n")
+  (insert " * @brief ")
+  (insert brief)
+  (insert " * ")
+  (insert desc)
+  (insert "\n */")
+  (goto-char current))
+
+
 (defun fun-doq ()
   "Insert a comment block on the line below for the function prototyped on the current line"
   (interactive)
