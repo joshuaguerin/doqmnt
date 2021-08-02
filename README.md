@@ -97,4 +97,4 @@ Why not? Please also submit an [issue](https://github.com/joshuaguerin/doqmnt/is
 
 ```Did anyone actually ask these questions, irrespective of the degree of frequency?```
 
-No, but it felt right to express in this manner.
+No, but it felt right to express some information in this manner.
