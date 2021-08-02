@@ -74,7 +74,7 @@
   (insert "\"\n")
   (insert " * @brief ")
   (insert brief)
-  (insert " * ")
+  (insert "\n *\n * ")
   (insert desc)
   (insert "\n */")
   (goto-char current))
