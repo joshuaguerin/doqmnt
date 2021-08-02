@@ -67,5 +67,11 @@ At the moment we consider both of these mostly/somewhat portable for the target 
 
 The remainder is written in pure (albeit at the moment not very functional) Emacs lisp, so we suspect most of the functionality will work on most systems.
 
+## Bugs and Feature Requests
+
+You are welcome to submit an [issue](https://github.com/joshuaguerin/doqmnt/issues)! (Just make sure to check the FAQ and current/closed issues first for duplicates.)
+
+Please be aware that this is a project we are doing for fun for ourselves and our students. Responsiveness may be an issue for us at the wrong time of year, and we may not be able to prioritize requests that appear to take a lot of time.
+
 
 
