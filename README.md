@@ -69,9 +69,29 @@ The remainder is written in pure (albeit at the moment not very functional) Emac
 
 ## Bugs and Feature Requests
 
-You are welcome to submit an [issue](https://github.com/joshuaguerin/doqmnt/issues)! (Just make sure to check the FAQ and current/closed issues first for duplicates.)
+You are welcome to submit an [issue](https://github.com/joshuaguerin/doqmnt/issues)! (Just make sure to check the FAQ and current/closed issues first for duplicates or existing conversations you could respond to.)
 
 Please be aware that this is a project we are doing for fun for ourselves and our students. Responsiveness may be an issue for us at the wrong time of year, and we may not be able to prioritize requests that appear to take a lot of time.
 
 
+## FAQ
+
+```The name doqmnt is terribly silly.```
+
+Yes! It was one of about a dozen silly candidates we threw around. We wanted something short and somewhat descriptive, and desired to avoid names that appeared to be taken by other companies or repos. Online searches for doqmnt turned up very little, and there were no repos with that name.
+
+
+```Your code isn't very good.```
+
+Thanks for looking! You are also correct, by our standards as well. :wink: The initial commits/version of doqmnt were primarily the result of about an afternoon of hacking with some of us barely recalling Lisp. We were tring to answer the question of "can we do something like this for our students." The result *seems* to be "yes."
+
+But, yes, minimally we want to take a pass later that involves basic refactoring and structuring things in a functional manner in Emacs Lisp. We may feel similar about `interactive`, `setq`, etc., but this was also the quickest way that we could throw something together in said afternoon while also refreshing our memory on a lot of Lisp stuff.
+
+```Can I send you a bug?```
+
+Yes, submit and [issue](https://github.com/joshuaguerin/doqmnt/issues)! Please be specific about the nature of the system, setup, and nature of the bug. Please check first to make sure that it wasn't already covered in another conversation.
+
+```Can I submit a feature request?```
+
+Why not? Please also submit an [issue](https://github.com/joshuaguerin/doqmnt/issues). Just be warned, that we currently have no real way of prioritizing these sorts of things, and we will probably make somewhat arbitrary decisions that are motivated by "How much time will this take us?", "How useful will this be given the current state of the project?", or even "How interesting do we find the idea at this moment."
 
