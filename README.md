@@ -1,7 +1,7 @@
 # doqmnt - Auto-documentation in Emacs for programmers.
 Doqmnt (pronounced: "document") is a free library for Emacs that assists with source code documentation for programmers.
 
-Currently doqmnt only supports a pre-configured doxygen format. We hope to upate this later to include more documentation standards (e.g., Javadoc), and more flexible formatting of documentation.
+Currently doqmnt only supports a pre-configured doxygen format. We hope to update this later to include more documentation standards (e.g., Javadoc), and more flexible formatting of documentation.
 
 ## Motivation
 It was developed by Joshua T. Guerin, Ph.D. and Kathleen Ericson, Ph.D. at the University of Tennessee at Martin for use in our programming course. Our hope is to aid in the documentation/development process by reducing overall keystrokes and workload of creating documentation.
@@ -83,7 +83,7 @@ Yes! It was one of about a dozen silly candidates we threw around. We wanted som
 
 ```Your code isn't very good.```
 
-Thanks for looking! You are also correct, by our standards as well. :wink: The initial commits/version of doqmnt were primarily the result of about an afternoon of hacking with some of us barely recalling Lisp. We were tring to answer the question of "can we do something like this for our students." The result *seems* to be "yes."
+Thanks for looking! You are also correct, by our standards as well. :wink: The initial commits/version of doqmnt were primarily the result of about an afternoon of hacking with some of us barely recalling Lisp. We were trying to answer the question of "can we do something like this for our students." The result *seems* to be "yes."
 
 But, yes, minimally we want to take a pass later that involves basic refactoring and structuring things in a functional manner in Emacs Lisp. We may feel similar about `interactive`, `setq`, etc., but this was also the quickest way that we could throw something together in said afternoon while also refreshing our memory on a lot of Lisp stuff.
 
