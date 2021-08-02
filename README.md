@@ -95,3 +95,6 @@ Yes, submit and [issue](https://github.com/joshuaguerin/doqmnt/issues)! Please b
 
 Why not? Please also submit an [issue](https://github.com/joshuaguerin/doqmnt/issues). Just be warned, that we currently have no real way of prioritizing these sorts of things, and we will probably make somewhat arbitrary decisions that are motivated by "How much time will this take us?", "How useful will this be given the current state of the project?", or even "How interesting do we find the idea at this moment."
 
+```Did anyone actually ask these questions, irrespective of the degree of frequency?```
+
+No, but it felt right to express in this manner.
