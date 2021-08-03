@@ -50,8 +50,6 @@
 (defun class-doq ()
   "Provide documentation for the class declared on the current line."
   (interactive)
-  (setq brief (read-string "@brief: "))
-  (setq desc (read-string "@description: "))
   (setq current (point))
   (setq p1 (line-beginning-position))
   (end-of-line)
@@ -59,7 +57,7 @@
   (setq line (buffer-substring p1 p2))
   (setq def (split-string line))
   (setq classname (cadr def))
-  (setq enddef (re-search-forward "};$"))
+  (setq enddef (re-search-forward "};"))
 
   (goto-char enddef)
   (insert "\n\n/* @class ")
@@ -73,8 +71,10 @@
   (insert (car vals))
   (insert "\"\n")
   (insert " * @brief ")
+  (setq brief (read-string "@brief: "))
   (insert brief)
   (insert "\n *\n * ")
+  (setq desc (read-string "@description: "))
   (insert desc)
   (insert "\n */")
   (goto-char current))
