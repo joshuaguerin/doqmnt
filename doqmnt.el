@@ -29,7 +29,6 @@
   (setq total (point-max))
   
   (goto-char 0)
-  (insert "/// \\file\n")
   (insert "/**")
   (insert "\n * @file ")
   (setq vals (split-string (buffer-file-name) "/"))
@@ -60,7 +59,10 @@
   (setq end (point-max))
 
   (goto-char p1)
-  (insert "\n/**\n * @class ")
+  (insert "\n/**\n * ")
+  (setq desc (read-string "@description: "))
+  (insert desc)
+  (insert "\n *\n * @class ")
   (insert classname)
   (insert " ")
   (setq vals (reverse (split-string (buffer-file-name) "/")))
@@ -73,10 +75,7 @@
   (insert " * @brief ")
   (setq brief (read-string "@brief: "))
   (insert brief)
-  (insert "\n *\n * ")
-  (setq desc (read-string "@description: "))
-  (insert desc)
-  (insert "\n */\n")
+  (insert "\n *\n */\n")
   (setq end (- (point-max) end))
   (goto-char (+ current end)))
 
@@ -97,6 +96,9 @@
 
   (goto-char p1)
   (insert "\n/**\n")
+  (setq desc (read-string "@description  "))
+  (insert (concat' " * " desc "\n *\n"))
+
   ;;put args in here
   (if (> (length arglist) 0)
       (dolist (arg arglist)
@@ -111,8 +113,6 @@
   (insert (concat' " * @return " retval " " ret_desc "\n"))
   (insert " * @post \n")
   (insert " * \n")
-  (setq desc (read-string "@description  "))
-  (insert (concat' " * " desc "\n"))
   (insert " */\n")
   
   ;; Return to original cursor position.
