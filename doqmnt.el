@@ -57,9 +57,9 @@
   (setq line (buffer-substring p1 p2))
   (setq def (split-string line))
   (setq classname (cadr def))
-  (setq enddef (re-search-forward "};"))
 
-  (goto-char enddef)
+  (backward-char) ;;go back to the opening curly brace
+  (forward-sexp) ;;go to matching closing curly brace
   (insert "\n\n/* @class ")
   (insert classname)
   (insert " ")
