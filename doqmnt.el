@@ -60,7 +60,7 @@
   (setq end (point-max))
 
   (goto-char p1)
-  (insert "\n/* @class ")
+  (insert "\n/**\n * @class ")
   (insert classname)
   (insert " ")
   (setq vals (reverse (split-string (buffer-file-name) "/")))
@@ -76,7 +76,7 @@
   (insert "\n *\n * ")
   (setq desc (read-string "@description: "))
   (insert desc)
-  (insert "\n */\n\n")
+  (insert "\n */\n")
   (setq end (- (point-max) end))
   (goto-char (+ current end)))
 
@@ -84,7 +84,7 @@
 (defun fun-doq ()
   "Insert a comment block on the line below for the function prototyped on the current line"
   (interactive)
-
+  (setq end (point-max))
   (setq p1 (line-beginning-position))
   (setq position (point))
 
@@ -95,7 +95,8 @@
   (setq args (substring line (+ (string-match "(" line) 1) (string-match ")" line)))
   (setq arglist (split-string args ", "))
 
-  (insert "\n/**<\n")
+  (goto-char p1)
+  (insert "\n/**\n")
   ;;put args in here
   (if (> (length arglist) 0)
       (dolist (arg arglist)
@@ -115,6 +116,7 @@
   (insert " */\n")
   
   ;; Return to original cursor position.
-  (goto-char position))
+  (setq end (- (point-max) end))
+  (goto-char (+ position end)))
 
 
