@@ -57,10 +57,10 @@
   (setq line (buffer-substring p1 p2))
   (setq def (split-string line))
   (setq classname (cadr def))
+  (setq end (point-max))
 
-  (backward-char) ;;go back to the opening curly brace
-  (forward-sexp) ;;go to matching closing curly brace
-  (insert "\n\n/* @class ")
+  (goto-char p1)
+  (insert "\n/* @class ")
   (insert classname)
   (insert " ")
   (setq vals (reverse (split-string (buffer-file-name) "/")))
@@ -76,8 +76,9 @@
   (insert "\n *\n * ")
   (setq desc (read-string "@description: "))
   (insert desc)
-  (insert "\n */")
-  (goto-char current))
+  (insert "\n */\n\n")
+  (setq end (- (point-max) end))
+  (goto-char (+ current end)))
 
 
 (defun fun-doq ()
