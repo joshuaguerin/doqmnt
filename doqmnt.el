@@ -95,9 +95,9 @@
   (setq arglist (split-string args ", "))
 
   (goto-char p1)
-  (insert "\n/**\n")
+  (insert "\n/**\n *")
   (setq desc (read-string "@description  "))
-  (insert (concat' " * " desc "\n *\n"))
+  (insert (concat' " " desc "\n *\n"))
 
   ;;put args in here
   (if (> (length arglist) 0)
@@ -111,7 +111,7 @@
   (insert (concat' " * @pre " (read-string "@pre ") "\n"))
   (setq ret_desc (read-string (concat' "@return " retval " ")))
   (insert (concat' " * @return " retval " " ret_desc "\n"))
-  (insert " * @post \n")
+  (insert (concat' " * @post " (read-string "@post ") "\n"))
   (insert " * \n")
   (insert " */\n")
   
