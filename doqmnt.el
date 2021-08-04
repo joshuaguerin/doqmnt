@@ -27,8 +27,7 @@
   (setq total (point-max))
   
   (goto-char 0)
-  (insert "/**")
-  (insert "\n * @file ")
+  (insert "/**\n * @file ")
   (setq vals (split-string (buffer-file-name) "/"))
   (insert (car (last vals))) ; need to fix
   (insert "\n * @author ")
@@ -58,7 +57,7 @@
 
   (goto-char p1)
   (insert "\n/**\n")
-  (insert (concat' " * " (read-string "@description: ")))
+  (insert (concat' " * " (read-string "@description: ") "\n"))
   (insert " *\n * @class ")
   (insert classname)
   (insert " ")
@@ -90,8 +89,15 @@
   (setq retval (car (split-string line)))
   (setq args (substring line (+ (string-match "(" line) 1) (string-match ")" line)))
   (setq arglist (split-string args ", "))
-
+  
   (goto-char p1)
+
+  ;; debugging stuff here
+  ;; (insert "length of arglist: ")
+  ;; (insert (number-to-string (length arglist)))
+  ;; (insert " ")
+  ;; (insert (format "%s" arglist))
+  
   (insert "\n/**\n")
   (insert (concat' " * " (read-string "@description  ") "\n *\n"))
 
