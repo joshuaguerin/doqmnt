@@ -23,8 +23,6 @@
 (defun file-doq ()
   "Insert a header comment at the top of the file."
   (interactive)
-  (setq brief (read-string "@brief "))
-  (setq desc (read-string "@description "))
   (setq current (point))
   (setq total (point-max))
   
@@ -37,10 +35,10 @@
   (insert user-full-name)
   (insert "\n * @date ")
   (insert (shell-command-to-string "echo -n $(date +%Y-%m-%d)"))
-  (insert (concat' "\n * @brief " brief))
+  (insert (concat' "\n * @brief " (read-string "@brief ")))
   
   (insert "\n * \n * ")
-  (insert desc)
+  (insert (read-string "@description "))
   (insert "\n */\n\n")
   (setq total (- (point-max) total))
   (setq current (+ current total))
