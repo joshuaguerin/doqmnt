@@ -108,7 +108,7 @@
 	(insert " ")
 	(insert param_desc)
         (insert "\n") ))
-  (insert " * @pre \n")
+  (insert (concat' " * @pre " (read-string "@pre ") "\n"))
   (setq ret_desc (read-string (concat' "@return " retval " ")))
   (insert (concat' " * @return " retval " " ret_desc "\n"))
   (insert " * @post \n")
