@@ -95,14 +95,14 @@
   (setq arglist (split-string args ", "))
 
   (goto-char p1)
-  (insert "\n/**\n *")
+  (insert "\n/**\n")
   (setq desc (read-string "@description  "))
-  (insert (concat' " " desc "\n *\n"))
+  (insert (concat' " * " desc "\n *\n"))
 
   ;;put args in here
   (if (> (length arglist) 0)
       (dolist (arg arglist)
-	(setq param_desc (read-string (concat' "Describe " arg " ")))
+	(setq param_desc (read-string (concat' "@param " arg " ")))
         (insert " * @param ")
         (insert arg)
 	(insert " ")
