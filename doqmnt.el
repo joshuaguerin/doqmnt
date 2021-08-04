@@ -96,8 +96,7 @@
 
   (goto-char p1)
   (insert "\n/**\n")
-  (setq desc (read-string "@description  "))
-  (insert (concat' " * " desc "\n *\n"))
+  (insert (concat' " * " (read-string "@description  ") "\n *\n"))
 
   ;;put args in here
   (if (> (length arglist) 0)
@@ -109,14 +108,11 @@
 	(insert param_desc)
         (insert "\n") ))
   (insert (concat' " * @pre " (read-string "@pre ") "\n"))
-  (setq ret_desc (read-string (concat' "@return " retval " ")))
-  (insert (concat' " * @return " retval " " ret_desc "\n"))
+  (insert (concat' " * @return " retval " " (read-string (concat' "@return " retval " ")) "\n"))
   (insert (concat' " * @post " (read-string "@post ") "\n"))
   (insert " * \n")
   (insert " */\n")
   
   ;; Return to original cursor position.
-  (setq end (- (point-max) end))
-  (goto-char (+ position end)))
-
+  (goto-char (+ position (- (point-max) end))))
 
