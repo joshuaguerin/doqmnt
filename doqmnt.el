@@ -77,7 +77,7 @@
 
 
 (defun fun-doq ()
-  "Insert a comment block on the line below for the function prototyped on the current line"
+  "Insert a comment above the prototype on the current line."
   (interactive)
   (setq end (point-max))
   (setq p1 (line-beginning-position))
@@ -86,7 +86,7 @@
   (end-of-line)
   (setq p2 (point))
   (setq line (buffer-substring p1 p2))
-  ;; (setq retval (car (split-string line)))
+  
   ;; Extract list (type proc) or (proc) if constructor
   (setq args (substring line (+ (string-match "(" line) 1) (string-match ")" line)))
   (setq arglist (split-string args "," t "\s*"))
@@ -96,23 +96,11 @@
   ;; debugging stuff here
   (setq type_name (split-string (substring line 0 (string-match "(" line))))
 
-  ;; (if (string-match "\w+" line)
-  ;;     (insert "not a prototype")
-  ;;     (insert "is a prototype"))
-  ;; (insert "length of arglist: ")
-  ;; (insert (number-to-string (length arglist)))
-  ;; (insert " ")
-  ;; (insert (format "%s" arglist))
-  ;; (insert " arglist:")
-  ;; (insert (format "%s" (car arglist)))
-  ;; (insert ": then arglist ")
-  ;; ;; something I cannot see is clearly the head of the list
-  ;; (insert (format "%s" (null (car arglist))))
-  
+  ;; Start docs
   (insert "\n/**\n")
   (insert (concat' " * " (read-string "@description  ") "\n *\n"))
   
-  ;;put args in here
+  ;; Process parameters
   (if (> (length arglist) 0)
       (dolist (arg arglist)
 	(setq param_desc (read-string (concat' "@param " arg " ")))
@@ -128,7 +116,6 @@
       (insert (concat' " * @return " (car type_name) " "
 		       (read-string (concat' "@return " (car type_name) " ")) "\n")) nil)
 
-  ;;(insert (concat' " * @return " retval " " (read-string (concat' "@return " retval " ")) "\n"))
   (insert (concat' " * @post " (read-string "@post ") "\n"))
   (insert " * \n")
   (insert " */\n")
