@@ -85,16 +85,20 @@
 
   (end-of-line)
   (setq p2 (point))
+  
+  ;; Retrieve prototype line
   (setq line (buffer-substring p1 p2))
+  
+  (goto-char p1)
+
+  ;; (process_prototype line)
   
   ;; Extract list (type proc) or (proc) if constructor
   (setq args (substring line (+ (string-match "(" line) 1) (string-match ")" line)))
   (setq arglist (split-string args "," t "\s*"))
-  
-  (goto-char p1)
 
-  ;; debugging stuff here
-  (setq type_name (split-string (substring line 0 (string-match "(" line))))
+  (setq type_name (get_type_ident line))
+  ;;(setq type_name (split-string (substring line 0 (string-match "(" line))))
 
   ;; Start docs
   (insert "\n/**\n")
@@ -123,3 +127,10 @@
   ;; Return to original cursor position.
   (goto-char (+ position (- (point-max) end))))
 
+(defun process_prototype (line)
+  (interactive)
+  
+  (insert "processing prototype"))
+
+(defun get_type_ident (line)
+    (split-string (substring line 0 (string-match "(" line))))
