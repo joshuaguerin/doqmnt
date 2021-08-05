@@ -94,9 +94,13 @@
   ;; (process_prototype line)
   
   ;; Extract list (type proc) or (proc) if constructor
-  (setq args (substring line (+ (string-match "(" line) 1) (string-match ")" line)))
-  (setq arglist (split-string args "," t "\s*"))
+  ;;(setq args (substring line (+ (string-match "(" line) 1) (string-match ")" line)))
+  ;;(setq arglist (split-string args "," t "\s*"))
+  
+  (setq arglist (get_args line))
 
+  (insert (format "%s" arglist))
+  
   (setq type_name (get_type_ident line))
   ;;(setq type_name (split-string (substring line 0 (string-match "(" line))))
 
@@ -134,3 +138,11 @@
 
 (defun get_type_ident (line)
     (split-string (substring line 0 (string-match "(" line))))
+
+(defun get_args (line)
+  (split-string
+   (substring line (+ (string-match "(" line) 1) (string-match ")" line))
+   "," t "\s*")
+  ;;(setq args (substring line (+ (string-match "(" line) 1) (string-match ")" line)))
+  ;;(setq arglist (split-string args "," t "\s*"))
+  )
