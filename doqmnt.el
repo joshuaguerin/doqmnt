@@ -99,24 +99,13 @@
   (insert "\n/**\n")
   (insert (concat' " * " (read-string "@description  ") "\n *\n"))
   
-  ;; Process parameters
+  ;; Process args if they exist
   (insert_args? arglist)
-  ;; (if (> (length arglist) 0)
-  ;;     (dolist (arg arglist)
-  ;; 	(setq param_desc (read-string (concat' "@param " arg " ")))
-  ;;       (insert " * @param ")
-  ;;       (insert arg)
-  ;; 	(insert " ")
-  ;; 	(insert param_desc)
-  ;;       (insert "\n") ))
   
   (insert (concat' " * @pre " (read-string "@pre ") "\n")) 
 
+  ;; Process type info if it exists
   (insert_type? type_name)
-  ;; Print type but only if it exists
-  ;; (if (> (length type_name) 1)
-  ;;     (insert (concat' " * @return " (car type_name) " "
-  ;; 		       (read-string (concat' "@return " (car type_name) " ")) "\n")) nil)
 
   (insert (concat' " * @post " (read-string "@post ") "\n"))
   (insert " * \n */\n")
@@ -124,7 +113,8 @@
   ;; Return to original cursor position.
   (goto-char (+ position (- (point-max) end))))
 
-;;;; String Processing Functions
+
+;; String Processing Functions ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Takes prototype, returns a list containing a type and identifier
 (defun get_type_ident (line)
     (split-string (substring line 0 (string-match "(" line))))
@@ -139,7 +129,8 @@
    "," t "\s*"))
 
 
-;;;; Printing Functions
+;; Printing Functions ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; If args exist, print in a loop
 (defun insert_args? (args)
   (if (> (length arglist) 0)
       (dolist (arg arglist)
@@ -151,7 +142,10 @@
         (insert "\n") ))
   )
 
+;; If type info exists, query user and print
 (defun insert_type? (t_name)
-    (if (> (length type_name) 1)
-      (insert (concat' " * @return " (car type_name) " "
-		       (read-string (concat' "@return " (car type_name) " ")) "\n")) nil))
+  (if (> (length type_name) 1)
+      (insert
+       (concat' " * @return " (car type_name) " "
+		(read-string (concat' "@return " (car type_name) " "))
+		"\n")) nil))
