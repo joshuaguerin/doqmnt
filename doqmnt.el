@@ -93,10 +93,15 @@
   (goto-char p1)
 
   ;; debugging stuff here
-  ;; (insert "length of arglist: ")
-  ;; (insert (number-to-string (length arglist)))
-  ;; (insert " ")
-  ;; (insert (format "%s" arglist))
+  (insert "length of arglist: ")
+  (insert (number-to-string (length arglist)))
+  (insert " ")
+  (insert (format "%s" arglist))
+  (insert " arglist:")
+  (insert (format "%s" (car arglist)))
+  (insert ": then arglist ")
+  ;; something I cannot see is clearly the head of the list
+  (insert (format "%s" (null (car arglist))))
   
   (insert "\n/**\n")
   (insert (concat' " * " (read-string "@description  ") "\n *\n"))
