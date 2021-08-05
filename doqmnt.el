@@ -90,25 +90,57 @@
   (setq line (buffer-substring p1 p2))
   
   (goto-char p1)
-
-  ;; (process_prototype line)
   
-  ;; Extract list (type proc) or (proc) if constructor
-  ;;(setq args (substring line (+ (string-match "(" line) 1) (string-match ")" line)))
-  ;;(setq arglist (split-string args "," t "\s*"))
-  
+  ;; Process prototype
   (setq arglist (get_args line))
-
-  (insert (format "%s" arglist))
-  
   (setq type_name (get_type_ident line))
-  ;;(setq type_name (split-string (substring line 0 (string-match "(" line))))
 
   ;; Start docs
   (insert "\n/**\n")
   (insert (concat' " * " (read-string "@description  ") "\n *\n"))
   
   ;; Process parameters
+  (insert_args? arglist)
+  ;; (if (> (length arglist) 0)
+  ;;     (dolist (arg arglist)
+  ;; 	(setq param_desc (read-string (concat' "@param " arg " ")))
+  ;;       (insert " * @param ")
+  ;;       (insert arg)
+  ;; 	(insert " ")
+  ;; 	(insert param_desc)
+  ;;       (insert "\n") ))
+  
+  (insert (concat' " * @pre " (read-string "@pre ") "\n")) 
+
+  (insert_type? type_name)
+  ;; Print type but only if it exists
+  ;; (if (> (length type_name) 1)
+  ;;     (insert (concat' " * @return " (car type_name) " "
+  ;; 		       (read-string (concat' "@return " (car type_name) " ")) "\n")) nil)
+
+  (insert (concat' " * @post " (read-string "@post ") "\n"))
+  (insert " * \n */\n")
+  
+  ;; Return to original cursor position.
+  (goto-char (+ position (- (point-max) end))))
+
+;;;; String Processing Functions
+;; Takes prototype, returns a list containing a type and identifier
+(defun get_type_ident (line)
+    (split-string (substring line 0 (string-match "(" line))))
+
+
+;; Takes prototype, returns a list of arguments.
+(defun get_args (line)
+  (split-string
+   ;; Get everything before first paren.
+   (substring line (+ (string-match "(" line) 1) (string-match ")" line))
+   ;; Split over , and trim whitespace
+   "," t "\s*"))
+
+
+;;;; Printing Functions
+(defun insert_args? (args)
   (if (> (length arglist) 0)
       (dolist (arg arglist)
 	(setq param_desc (read-string (concat' "@param " arg " ")))
@@ -117,32 +149,9 @@
 	(insert " ")
 	(insert param_desc)
         (insert "\n") ))
-  (insert (concat' " * @pre " (read-string "@pre ") "\n"))
-
-  ;; Print type but only if it exists
-  (if (> (length type_name) 1)
-      (insert (concat' " * @return " (car type_name) " "
-		       (read-string (concat' "@return " (car type_name) " ")) "\n")) nil)
-
-  (insert (concat' " * @post " (read-string "@post ") "\n"))
-  (insert " * \n")
-  (insert " */\n")
-  
-  ;; Return to original cursor position.
-  (goto-char (+ position (- (point-max) end))))
-
-(defun process_prototype (line)
-  (interactive)
-  
-  (insert "processing prototype"))
-
-(defun get_type_ident (line)
-    (split-string (substring line 0 (string-match "(" line))))
-
-(defun get_args (line)
-  (split-string
-   (substring line (+ (string-match "(" line) 1) (string-match ")" line))
-   "," t "\s*")
-  ;;(setq args (substring line (+ (string-match "(" line) 1) (string-match ")" line)))
-  ;;(setq arglist (split-string args "," t "\s*"))
   )
+
+(defun insert_type? (t_name)
+    (if (> (length type_name) 1)
+      (insert (concat' " * @return " (car type_name) " "
+		       (read-string (concat' "@return " (car type_name) " ")) "\n")) nil))
