@@ -4,7 +4,7 @@ Doqmnt (pronounced: "document") is a free library for Emacs that assists with so
 Currently doqmnt only supports a pre-configured doxygen format. We hope to update this later to include more documentation standards (e.g., Javadoc), and more flexible formatting of documentation.
 
 ## Motivation
-It was developed by Joshua T. Guerin, Ph.D. and Kathleen Ericson, Ph.D. at the University of Tennessee at Martin for use in our introductory programming courses. Our hope is to aid in the documentation/development process by reducing overall keystrokes and workload of creating documentation.
+It was developed by [Joshua T. Guerin](https://github.com/joshuaguerin), Ph.D. and [Kathleen Ericson](https://github.com/k-ericson), Ph.D. at the University of Tennessee at Martin for use in our introductory programming courses. Our hope is to aid in the documentation/development process by reducing overall keystrokes and workload of creating documentation.
 
 And you are correct--documentation is not difficult, but in our experience many student programmers tend to view documentation as something to address before submission. By streamlining the process we hope to make engaging in the documentation process early to be a more attractive proposition.
 
