@@ -39,6 +39,7 @@ If Emacs loads happily after installation, it is likely that doqmnt will work.
 Doqmnt implements the following commands, that are accessible with "M-x command".
 
 `file-doq`
+
 ![Example gif: file-doq](docs/images/file_doq.gif)
 - Should be ran at the top of a source file.
 - Adds a pre-configured header comment, scraping what information it can from the system (e.g., user name, date).
