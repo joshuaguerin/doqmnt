@@ -44,7 +44,10 @@ Doqmnt implements the following commands, that are accessible with "M-x command"
 - Should be ran at the top of a source file.
 - Adds a pre-configured header comment, scraping what information it can from the system (e.g., user name, date).
 
+
 `fun-doq`
+
+![Example gif: fun-doq](docs/images/fun_doq.gif)
 - Can be ran anywhere on the line containing a prototype for a function.
 - Generates a pre-configured function/method comment *before* the prototype.
 - Cursor is returned to the starting point afterward.
@@ -52,7 +55,10 @@ Doqmnt implements the following commands, that are accessible with "M-x command"
 - Parses the line and extracts whatever relevant information exists.
  - E.g., Function identifier, return value, parameter list.
 
+
 `class-doq`
+
+![Example gif: class-doq](docs/images/class_doq.gif)
 - Can be ran anywhere on the line containing the start of the class declaration.
 - Generates a pre-configured function/method comment *before* the class declaration.
 - Cursor is returned to the starting point afterward.
