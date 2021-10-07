@@ -55,7 +55,7 @@ Doqmnt implements the following commands, that are accessible with "`M-x` *comma
 - Parses the line and extracts whatever relevant information exists.
   - E.g., Function identifier, return value, parameter list.
 
-**Note:** Only [single-line](#9) prototypes are currently supported.
+**Note:** Only [single-line](https://github.com/joshuaguerin/doqmnt/issues/9) prototypes are currently supported.
 
 `class-doq`
 
