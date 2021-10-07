@@ -63,7 +63,7 @@ Doqmnt implements the following commands, that are accessible with "`M-x` *comma
 - Can be ran anywhere on the line containing the start of the class declaration.
 - Generates a pre-configured function/method comment *before* the class declaration.
 - Cursor is returned to the starting point afterward.
-- Currently works only with C/C++/Java style prototypes.
+- Currently works only with C/C++/Java style class definitions.
 - Parses the line and extracts the class name.
 
 All implemented commands currently work in an interactive mode we are developing. The minbuffer will prompt the user for information that cannot be generated automatically by the system (e.g., descriptions of items). You can type up an entry and simply hit `return` or `enter` to move on to the next. The documentation is generated automatically, in pieces until the function is done running.
