@@ -1,19 +1,19 @@
 # doqmnt - Auto-documentation in Emacs for programmers.
 Doqmnt (pronounced: "document") is a free library for Emacs that assists with source code documentation for programmers.
 
-Currently doqmnt only supports a pre-configured doxygen format. We hope to update this later to include more documentation standards (e.g., Javadoc), and more flexible formatting of documentation.
+Currently doqmnt only supports a pre-configured doxygen format. We hope to update this later to include more documentation standards and languages, and more flexible/configurable formatting of documentation.
 
 ## Motivation
-It was developed by [Joshua T. Guerin](https://github.com/joshuaguerin), Ph.D. and [Kathleen Ericson](https://github.com/k-ericson), Ph.D. at the University of Tennessee at Martin for use in our introductory programming courses. Our hope is to aid in the documentation/development process by reducing overall keystrokes and workload of creating documentation.
+It is being developed by [Joshua T. Guerin](https://github.com/joshuaguerin), Ph.D. and [Kathleen Ericson](https://github.com/k-ericson), Ph.D. at the University of Tennessee at Martin for use in our introductory programming courses. Our hope is to aid in the documentation/development process by reducing overall keystrokes and workload of creating documentation.
 
 And you are correct--documentation is not difficult, but in our experience many student programmers tend to view documentation as something to address before submission. By streamlining the process we hope to make engaging in the documentation process early to be a more attractive proposition.
 
 Doqmnt is not just meant for students/academic use--we hope to one day have the project mature enough that programmers in the wild may discover it and choose to use it.
 
 ## Installation
-At the moment doqmnt is only located in this github repository (i.e., not in melpa) due to its immaturity. This may change over time.
+At the moment doqmnt is only located in this github repository due to its immaturity. This may change over time.
 
-There are only two steps to install on most *nix systems, and the process is fairly similar for most .el files.
+There are only two steps to install on most *nix systems, and the process is fairly similar for most stand-alone .el files.
 
 **1. Download the .el file, and put it somewhere safe on your system.**
 
@@ -33,10 +33,10 @@ The following lines of code added to your .emacs file should do the trick:
 
 If you chose to put doqmnt somewhere other than `~/.emacs.d/include` you can change the above to reflect the correct directory.
 
-## Usage
-If Emacs loads happily after installation, it is likely that doqmnt will work.
+If Emacs loads happily after installation, it is likely that doqmnt will work. You can test it by issuing any commands in the **Usage** section.
 
-Doqmnt implements the following commands, that are accessible with "M-x command".
+## Usage
+Doqmnt implements the following commands, that are accessible with "`M-x` *command*". Where appropriate, commands will solicit information via the minibuffer.
 
 `file-doq`
 
