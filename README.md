@@ -53,8 +53,9 @@ Doqmnt implements the following commands, that are accessible with "`M-x` *comma
 - Cursor is returned to the starting point afterward.
 - Currently works only with C/C++/Java style prototypes.
 - Parses the line and extracts whatever relevant information exists.
- - E.g., Function identifier, return value, parameter list.
+  - E.g., Function identifier, return value, parameter list.
 
+**Note:** Only [single-line](#9) prototypes are currently supported.
 
 `class-doq`
 
